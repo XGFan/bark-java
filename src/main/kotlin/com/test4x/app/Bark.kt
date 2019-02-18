@@ -89,11 +89,11 @@ class Bark {
 
             init {
                 logger.info("use redis")
-                val redisUri = RedisURI.create(host, System.getenv("redis.port")?.toInt() ?: 6379)
+                val builder = RedisURI.Builder.redis(host, System.getenv("redis.port")?.toInt() ?: 6379)
                 System.getenv("redis.auth")?.let {
-                    redisUri.setPassword(it)
+                    builder.withPassword(it)
                 }
-                val client = RedisClient.create(redisUri)
+                val client = RedisClient.create(builder.build())
                 val connection = client.connect()
                 sync = connection.sync()
             }
