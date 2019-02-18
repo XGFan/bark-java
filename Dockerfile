@@ -1,7 +1,8 @@
-FROM gradle:5.2-jre8-alpine as gradle
-ADD . /app/
+FROM gradle:4.1.0-jdk8-alpine as gradle
 WORKDIR /app/
-RUN gradle fatjar
+ADD . /app/
+USER root
+RUN gradle fatJar
 
 FROM openjdk:8-jre-alpine as java
 WORKDIR /app/
