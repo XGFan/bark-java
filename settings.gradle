@@ -1,1 +1,8 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.aliyun.com/nexus/content/repositories/gradle-plugin" }
+        gradlePluginPortal()
+    }
+}
 rootProject.name = 'bark-java'
+

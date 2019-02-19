@@ -61,7 +61,7 @@ class Bark {
             .setBadgeNumber(1)
             .buildWithDefaultMaximumLength()
 
-        val pushNotification = SimpleApnsPushNotification(deviceToken, "me.fin.app", payload)
+        val pushNotification = SimpleApnsPushNotification(deviceToken, "me.fin.bark", payload)
         val notificationResponse = apnsClient.sendNotification(pushNotification).get()
         return if (notificationResponse.isAccepted) {
             true
