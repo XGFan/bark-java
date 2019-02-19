@@ -105,7 +105,7 @@ class Bark {
             override fun getDeviceByKey(key: String): String? {
                 return sync.hget("device", key)
             }
-        }
+        } as Repo
     } ?: object : Repo {
 
         val map = ConcurrentHashMap<String, String>()
