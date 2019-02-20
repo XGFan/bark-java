@@ -57,9 +57,7 @@ class Bark {
             .setCategoryName("myNotificationCategory")
             .setSound("1107")
         params.forEach { t, u -> builder.addCustomProperty(t, u) }
-        val payload = builder
-            .setBadgeNumber(1)
-            .buildWithDefaultMaximumLength()
+        val payload = builder.buildWithDefaultMaximumLength()
 
         val pushNotification = SimpleApnsPushNotification(deviceToken, "me.fin.bark", payload)
         val notificationResponse = apnsClient.sendNotification(pushNotification).get()
